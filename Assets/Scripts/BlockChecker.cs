@@ -3,7 +3,7 @@ using UnityEngine;
 public static class BlockChecker
 {
     private const float VectorLength = 0.55f;
-    
+
     public static bool CheckIsGrounded(Vector3 position)
     {
         return Physics.Raycast(position, Vector3.down, VectorLength);
@@ -24,7 +24,7 @@ public static class BlockChecker
         var pos = transform.position;
         pos.x = Mathf.Round(pos.x);
         pos.z = Mathf.Round(pos.z);
-        
+
         transform.position = pos;
     }
 }

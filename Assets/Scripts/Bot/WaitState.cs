@@ -14,13 +14,13 @@ namespace DefaultNamespace
             _waitTime = waitTime;
             _previousDirection = previousDirection;
         }
-        
-        
+
+
         public Vector3 GetDirection(Vector3 transformPosition)
         {
             return Vector3.zero;
         }
-        
+
         public void OnUpdate(float deltaTime)
         {
             _waitTime -= deltaTime;

@@ -43,7 +43,7 @@ public class CubeController : MonoBehaviour
     {
         _isMoving = true;
         _rigidbody.isKinematic = true;
-        for (int i = 0; i < 90 / _rollSpeed; i++)
+        for (var i = 0; i < 90 / _rollSpeed; i++)
         {
             transform.RotateAround(pivot, axis, _rollSpeed);
             yield return new WaitForSeconds(0.01f);

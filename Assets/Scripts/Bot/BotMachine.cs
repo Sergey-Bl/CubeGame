@@ -21,7 +21,7 @@ namespace Bot
         private void Update()
         {
             var direction = _currentState.GetDirection(transform.position);
-            
+
             _cubeController.Move(direction);
 
             _currentState.OnUpdate(Time.deltaTime);

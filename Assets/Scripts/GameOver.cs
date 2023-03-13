@@ -6,7 +6,7 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] private string sceneName;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
 
     {
         if (collision.collider.tag == "ObjectCube")

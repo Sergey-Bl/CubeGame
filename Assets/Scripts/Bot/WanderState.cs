@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace DefaultNamespace
 {
-    public class WanderState : IABotState {
+    public class WanderState : IABotState
+    {
         private readonly Vector3 _direction;
         private IABotState _nextState;
 
