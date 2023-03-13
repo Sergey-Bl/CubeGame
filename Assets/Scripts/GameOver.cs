@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
 
         void EndGame()
         {
-            Debug.Log("Over");
+            Debug.Log("Game Over");
             SceneManager.LoadSceneAsync(sceneName);
         }
     }

@@ -9,43 +9,31 @@ public class CubeController : MonoBehaviour
     private Vector3 _axis;
     private bool _isMoving;
     private Rigidbody _rigidbody;
+    [SerializeField] private float jumpForce;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-
+    public void Move(Vector3 direction)
     {
         if (_isMoving) return;
-
-        if (Input.GetKey(KeyCode.W))
+        
+        var isGrounded = BlockChecker.CheckIsGrounded(transform.position);
+        if (!isGrounded)
         {
-            Move(Vector3.left);
+            return;
         }
-        else if (Input.GetKey(KeyCode.S))
+        
+        var verticalComponent = Vector3.down;
+        var hasWall = BlockChecker.HasWallInDirection(transform.position, direction);
+        if (hasWall)
         {
-            Move(Vector3.right);
+            verticalComponent = Vector3.up;
         }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            Move(Vector3.forward);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            Move(Vector3.back);
-        }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            Move(Vector3.up);
-        }
-    }
-
-
-    private void Move(Vector3 direction)
-    {
-        _pivotPoint = (direction / 2f) + (Vector3.down / 2) + transform.position;
+        
+        _pivotPoint = (direction / 2f) + (verticalComponent / 2f) + transform.position;
         _axis = Vector3.Cross(Vector3.up, direction);
 
         StartCoroutine(Roll(_pivotPoint, _axis));
@@ -64,5 +52,7 @@ public class CubeController : MonoBehaviour
 
         _rigidbody.isKinematic = false;
         _isMoving = false;
+        
+        BlockChecker.SnapPositionToInteger(transform);
     }
 }
