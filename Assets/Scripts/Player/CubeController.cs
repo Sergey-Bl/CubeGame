@@ -9,11 +9,16 @@ public class CubeController : MonoBehaviour
     private Vector3 _axis;
     private bool _isMoving;
     private Rigidbody _rigidbody;
-    [SerializeField] private float jumpForce;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        EventController.TrapStay.AddListener(DamageReceived);
+    }
+
+    private void DamageReceived()
+    {
+       Debug.Log("Тут может быть HpLefter");
     }
 
     public void Move(Vector3 direction)

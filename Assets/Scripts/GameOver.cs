@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private string sceneName;
@@ -11,15 +10,13 @@ public class GameOver : MonoBehaviour
     {
         if (collision.collider.tag == "ObjectCube")
         {
-            {
-                EndGame();
-            }
+            EndGame();
         }
+    }
 
-        void EndGame()
-        {
-            Debug.Log("Game Over");
-            SceneManager.LoadSceneAsync(sceneName);
-        }
+    public void EndGame()
+    {
+        Debug.Log("Game Over");
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
