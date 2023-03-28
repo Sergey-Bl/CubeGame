@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("Game Over");
+        Debug.Log("GAME WIN");
         SceneManager.LoadSceneAsync(sceneName);
     }
 }
