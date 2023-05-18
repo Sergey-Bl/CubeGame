@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NickNamesUI : MonoBehaviour
 {
-    [Header("UI Elements")]
     public GameObject playerPrefab;
     public TextMeshProUGUI nicknamesText;
     private List<string> nicknames = new List<string>();
@@ -13,7 +12,6 @@ public class NickNamesUI : MonoBehaviour
 
     public void AddPlayer(GameObject player)
     {
-        // Проверка наличия игрока в словаре
         if (nicknameInstances.ContainsKey(player))
         {
             Debug.Log("Player already exists in the dictionary.");
